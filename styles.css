@@ -22,7 +22,7 @@ input[type="number"] {
     font-family: 'Courier New', Courier, monospace;
 }
 
-input[disabled] {
+input[type="text"] {
     background-color: yellow;
     color: black;
 }

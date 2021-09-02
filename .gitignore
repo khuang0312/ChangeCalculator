@@ -1,4 +1,6 @@
-venv/*
-.vscode/*
-__pycache__/*
-.pytest_cache/*
+venv/
+.vscode/
+__pycache__/
+.pytest_cache/
+spare_code/
+
