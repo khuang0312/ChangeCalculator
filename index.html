@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+    <meta charset="UTF-8">
+
+    <!-- We have to load these all as modules since they use import/export -->
+    <script type="module" src="./decimal.js"></script>
+    <script type="module" src="./currencyunits.js"></script>
+    <script type="module" src="./src.js"></script>
+    <link rel="stylesheet" href="styles.css">
+
+    <body>
+        <div id="subtotal_calculator">
+            <h1>Subtotal Calculation</h1>
+            <form>
+                <p>
+                    Customers cannot pay a nonpositive amount. The highest amount they
+                    can pay is $100.
+                </p>
+                
+                <div class="form_elem">
+                    <label for="total_price">Total Price (Max price is $100.00): $</label>
+                    <input id="total_price" name="total_price" 
+                        type="number" min=0.01 max=100 step=0.01 value=20.50
+                        required></input>
+                </div>
+                
+                <div class="form_elem">
+                    <label for="tax">Tax Calculated: $</label>
+                    <input id="tax" type="text" disabled value=0.00>
+                </div>
+
+                <div class="form_elem">
+                    <label for="subtotal">Subtotal: $</label>
+                    <input id="subtotal" type="text" disabled value=0.00>
+                </div>
+                
+                <!-- disabled refreshing behavior using Javascript -->
+                <div class="form_elem">
+                    <input id="submit_subtotal" type="submit" value="Subtotal"></input>
+                </div>
+            </form>
+        </div>
+
+        <div id="change_calculator" hidden="true">
+            <h1>Calculate Change</h1>
+            <form>
+                <p>
+                    A consumer can choose to pay the price however much they want. 
+                    For now, we assume they pay in USD with optimal currency units, only the ones
+                    used by the cashier. They cannot pay less than the total price above. If the
+                    store have insufficient currency units to pay the consumer... the store 
+                    cannot count this as a successful transaction.
+                </p>
+                
+                <div class="form_elem">
+                    <label for="total_paid">Amount paid (Max payment is $100.00): $</label>
+                    <input id="total_paid" name="paid" 
+                        type="number" min=0 max=100 step=0.01 value=20.50
+                        required></input>
+                </div>
+
+                <div class="form_elem">
+                    <label for="change_awarded">Change: $</label>
+                    <input id="change_awarded" type="text" disabled value=0.00>
+                </div>
+
+                <div class="form_elem">
+                    <input id="submit_cashtendered" type="submit" value="Cash Tendered"></input>
+                </div>
+            </form>
+        </div>
+
+        <div id="customer_change" hidden>
+            <form>
+                <table id="customer_change_table">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Worth</th>
+                            <th>Quantity</th>
+                            <th>Total</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+
+                <div class="form_elem">
+                    <label for="change_paid_so_far">Change Paid So Far: $</label>
+                    <input id="change_paid_so_far" type="text" disabled value=0.00>
+                </div>
+                
+                <div class="form_elem">
+                    <label for="remainder">Remainder: $</label>
+                    <input id="remainder" type="text" disabled value=0.00>
+                </div>
+                
+                <div class="form_elem">
+                    <input id="submit_change" type="submit" value="Next Transaction"></input>
+                </div>
+            </form>
+        </div>
+        
+        <h1>Register Status</h1>
+        <form>
+            <div class="form_elem">
+                <label for="transaction_counter">Successful Transactions:</label>
+                <input id="transaction_counter" type="text" disabled value=0>
+            </div>
+
+            <div class="form_elem">
+                <label for="register_balance">Balance: $</label>
+                <input id="register_balance" type="text" disabled value=0.00>
+            </div>
+
+            <!-- This sends an sales tax -->
+            <div class="form_elem">
+                <label for="sales_tax">Sales Tax (in per cent):</label>
+                <input id="sales_tax" name="sales_tax"
+                    type="number" min=0 max=100 step=0.01 value="9.25"></input>
+            </div>
+
+            <table id="register_table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Worth</th>
+                        <th>Quantity</th>
+                        <th>Total</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+            
+            <div class="form_elem">
+                <input id="submit_register_edit" type="submit" value="Update Register"></submit>
+            </div>
+        </form>
+    </body>
+</html>

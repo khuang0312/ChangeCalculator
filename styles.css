@@ -1,0 +1,42 @@
+h1 {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin-left: 0.5%;
+}
+
+p {
+    font-family:  Verdana, Geneva, Tahoma, sans-serif;
+    margin-left: 1%;
+    margin-right: 50%;
+}
+
+.form_elem {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    display: block;
+    margin-left: 1%;
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+
+input[type="number"] {
+    color :black;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+input[disabled] {
+    background-color: yellow;
+    color: black;
+}
+
+table {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    border : 2px solid black;
+    margin-left: 1%;
+    margin-top: 10px;
+    margin-bottom: 20px;  
+}
+
+th, td {
+    border: 1px solid gray;
+    padding: 5px 8px 5px 8px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
