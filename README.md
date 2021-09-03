@@ -1,18 +1,20 @@
-<h1>About the Change Calculator</h1>
-<p>
-This is a very primitive implementation of an cash register. What this
-does is essentially take an total payment amount required, the cash
-paid by the customer, then calculates the change as well as which
-currency units are needed to pay for it.
-</p>
-
-<p>
-The register can be altered. For instance, you can modify how much
-of each currency unit is currently in the register. You can also
-change the sales tax percentage. The whole application is client-side
-so no data is saved if the page is refreshed. This keeps things rather
-simple. No server to speak of.
-</p>
+<h1>
+    About the
+    <a href="https://khuang0312.github.io/ChangeCalculator/">Change Calculator</a>
+</h1>
+    <p>
+    This is a very primitive implementation of an cash register. What this
+    does is essentially take an total payment amount required, the cash
+    paid by the customer, then calculates the change as well as which
+    currency units are needed to pay for it.
+    </p>
+    <p>
+    The register can be altered. For instance, you can modify how much
+    of each currency unit is currently in the register. You can also
+    change the sales tax percentage. The whole application is client-side
+    so no data is saved if the page is refreshed. This keeps things rather
+    simple. No server to speak of.
+    </p>
 
 <h1>Design Assumptions In Program</h1>
     <li>Employee assumptions:</li> 
