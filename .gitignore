@@ -3,4 +3,4 @@ venv/
 __pycache__/
 .pytest_cache/
 spare_code/
-
+node_modules/

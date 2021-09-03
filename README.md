@@ -40,7 +40,7 @@ Provide unit tests sufficient to prove your program works
         to test out my site. Then navigate to that file on your server.</li>
     <li>If you are using a Linux system, I have provided a bash script with
         the settings I used to deploy the server and quickly test things.</li>
-    <li></li>
+    <li>Run <code>npm i</code> in the installation directory, then <code>npm test</code>!</li>
 </ol>
 
 <h1>How to use the Cash Register</h1>
