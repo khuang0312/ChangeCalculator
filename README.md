@@ -1,5 +1,18 @@
-Document any assumptions you make that are not in the requirements
-Provide unit tests sufficient to prove your program works
+<h1>About the Change Calculator</h1>
+<p>
+This is a very primitive implementation of an cash register. What this
+does is essentially take an total payment amount required, the cash
+paid by the customer, then calculates the change as well as which
+currency units are needed to pay for it.
+</p>
+
+<p>
+The register can be altered. For instance, you can modify how much
+of each currency unit is currently in the register. You can also
+change the sales tax percentage. The whole application is client-side
+so no data is saved if the page is refreshed. This keeps things rather
+simple. No server to speak of.
+</p>
 
 <h1>Design Assumptions In Program</h1>
     <li>Employee assumptions:</li> 
@@ -38,8 +51,8 @@ Provide unit tests sufficient to prove your program works
     <li>Host an HTTP server and put the HTML, CSS, and JS files in the same directory on it. 
         I personally used <a href="https://www.npmjs.com/package/http-server">this server</a>
         to test out my site. Then navigate to that file on your server.</li>
-    <li>If you are using a Linux system, I have provided a bash script with
-        the settings I used to deploy the server and quickly test things.</li>
+    <li>If you are using a Linux system, I have provided <code>server.sh</code>.
+        It contains the parameters to deploy the website on the server.</li>
     <li>Run <code>npm i</code> in the installation directory, then <code>npm test</code>!</li>
 </ol>
 
