@@ -33,7 +33,15 @@ Provide unit tests sufficient to prove your program works
         </ul>
     
   
-    
+<h1>How to Setup Cash Register and Testing Suite</h1>
+<ol>
+    <li>Host an HTTP server and put the HTML, CSS, and JS files in the same directory on it. 
+        I personally used <a href="https://www.npmjs.com/package/http-server">this server</a>
+        to test out my site. Then navigate to that file on your server.</li>
+    <li>If you are using a Linux system, I have provided a bash script with
+        the settings I used to deploy the server and quickly test things.</li>
+    <li></li>
+</ol>
 
 <h1>How to use the Cash Register</h1>
     <h2>Subtotal Calculation</h2>

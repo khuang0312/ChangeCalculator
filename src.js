@@ -1,11 +1,6 @@
 import {Decimal} from "./decimal.js";
 import {CurrencyUnits} from "./currencyunits.js";
 
-
-/** 
- * A typedef necessary for documenting the return value of a function below...
- * @typedef {{"curr_units": CurrencyUnits, "remainder": Decimal}} Change;
-*/
 const USD = [
     {"name" : "20 dollar bill", "worth": new Decimal("20.00"), "qty": 1},
     {"name" : "10 dollar bill", "worth": new Decimal("10.00"), "qty": 1},
@@ -18,7 +13,6 @@ const USD = [
     {"name" : "nickel", "worth": new Decimal("0.05"), "qty": 1},
     {"name" : "penny", "worth": new Decimal("0.01"), "qty": 15}
 ];
-
 
 let register = {
     "transactions" : 0,
@@ -81,30 +75,6 @@ function inputWithinNumericalBounds() {
     alert(`Must be a positive number from ${register.min_amount} to ${register.max_amount}.`);
 }
 
-/**
- * A helper function that gets the change units and modifies the existing currency supply
- * @param {Decimal} total_change
- * @return {Change} - the currency units and remainder
- */
-function calculateCurrencyUnits(total_change) {
-    let curr = register.currencies[register.currency_code];
-    curr.sort_units()
-    let change_units = new CurrencyUnits([]);
-
-    for (let i = 0; i < curr.units.length; i++) {
-        let unit = curr.units[i];
-        let unit_amount = Decimal.min(unit.qty, total_change.divToInt(unit.worth));
-
-        if (unit_amount > 0) {
-            total_change = total_change.sub(unit.worth.mul(unit_amount));
-            change_units.add_unit(unit.name, unit.worth, unit_amount.toNumber());
-            unit.qty -= unit_amount.toNumber();
-        }
-    }
-    return {"curr_units" : change_units, "remainder": total_change};
-    
-}
-
 
 /**
  * Fills an existing table with rows for the corresponding currency units
@@ -113,6 +83,10 @@ function calculateCurrencyUnits(total_change) {
  */
 function fillCurrencyTable(currency, table) {
     let body = table.tBodies[0];
+
+    while (body.rows.length > 0) {
+        body.deleteRow(-1);
+    }
 
     for (let i = 0; i < currency.units.length; i++) {
         let unit = currency.units[i];
@@ -215,7 +189,8 @@ function calculateChange(event) {
             change_calc.submit.disabled = true;
             // show table
             customer_change.div.hidden = false;
-            let changeUnit = calculateCurrencyUnits(change_awarded);
+            let changeUnit = 
+                register.currencies[register.currency_code].calculateChangeUnits(change_awarded);
             customer_change.remainder.value = changeUnit.remainder;
             customer_change.balance.value = changeUnit.curr_units.get_balance();
             fillCurrencyTable(changeUnit.curr_units, customer_change.table);
