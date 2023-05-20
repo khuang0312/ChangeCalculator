@@ -3,7 +3,7 @@
     <a href="https://khuang0312.github.io/ChangeCalculator/">Change Calculator</a>
 </h1>
     <p>
-    This is a very primitive implementation of an cash register. What this
+    This is a implementation of an cash register. What this
     does is essentially take an total payment amount required, the cash
     paid by the customer, then calculates the change as well as which
     currency units are needed to pay for it.
